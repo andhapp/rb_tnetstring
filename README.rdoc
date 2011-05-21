@@ -14,8 +14,7 @@ Implementation of TNetstring[http://www.tnetstrings.org/].
 
 == TODO
 
-* Move the error messages to constants
-* Other refactoring
+* Refactoring
 
 == Copyright
 
