@@ -1,6 +1,6 @@
 = rb_tnetstring
 
-Description goes here.
+Implementation of (Typed Netstring)[http://www.tnetstrings.org/].
 
 == Contributing to rb_tnetstring
  
