@@ -22,6 +22,8 @@ module RbTNetstring
   
   class ProcessError < StandardError; end
   
+  KEY_MUST_BE_STRING = "Dictionary keys must be Strings"
+  
   ENCODE_TYPES = {
     Fixnum => IntegerEncoder,
     Bignum => IntegerEncoder, 

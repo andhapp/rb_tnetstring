@@ -12,6 +12,13 @@ module RbTNetstring
       
       include Helper
       
+      MIN_LENGTH = 0
+      MAX_LENGTH = 999_999_999 
+      
+      EMPTY_DATA = "Invalid data to parse; it's empty"
+      DATA_LONGER_THAN_MAX_ALLOWED = "Data is longer than the specification allows"
+      DATA_SHORTER_THAN_MIN_ALLOWED = "Data length cannot be negative"
+      
       attr_accessor :parser_klass, :value, :remain
 
       def initialize(tnetstring)
@@ -20,12 +27,12 @@ module RbTNetstring
 
       #TODO: Needs to be refactored
       def parse(data) # :nodoc:
-        assert data, "Invalid data to parse; it's empty"
+        assert data, EMPTY_DATA
         length, extra = data.split(':', 2)
 
         length = length.to_i
-        assert length <= 999_999_999, "Data is longer than the specification allows"
-        assert length >= 0, "Data length cannot be negative"
+        assert length <= MAX_LENGTH, DATA_LONGER_THAN_MAX_ALLOWED 
+        assert length >= MIN_LENGTH, DATA_SHORTER_THAN_MIN_ALLOWED 
 
         payload, extra = extra[0, length], extra[length..-1]
 
@@ -37,12 +44,14 @@ module RbTNetstring
         [payload, to_parser_klass(payload_type_symbol), remain]
       end
 
-      def to_parser_klass(payload_type_symbol)
-        if type = PARSE_TYPES[payload_type_symbol]
-        else assert false, "Invalid payload type: #{payload_type_symbol}"
+      private
+
+        def to_parser_klass(payload_type_symbol)
+          if type = PARSE_TYPES[payload_type_symbol]
+          else assert false, "Invalid payload type: #{payload_type_symbol}"
+          end
+          type
         end
-        type
-      end
    
     end
     
