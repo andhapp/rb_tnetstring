@@ -1,6 +1,6 @@
 module RbTNetstring
 
-  class DictionaryEncoder < ::RbTNetstring::Encoder 
+  class DictionaryEncoder < Encoder 
     def initialize(obj)
       @obj = obj
     end

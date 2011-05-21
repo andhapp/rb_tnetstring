@@ -1,6 +1,6 @@
 module RbTNetstring
 
-  class FloatEncoder < ::RbTNetstring::Encoder 
+  class FloatEncoder < Encoder 
     def initialize(obj)
       @obj = obj
     end

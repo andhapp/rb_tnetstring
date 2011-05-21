@@ -1,6 +1,6 @@
 module RbTNetstring
 
-  class ListParser < RbTNetstring::Parser
+  class ListParser < Parser
 
     def initialize(payload)
       @payload = payload

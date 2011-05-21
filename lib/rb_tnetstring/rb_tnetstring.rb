@@ -23,25 +23,25 @@ module RbTNetstring
   class ProcessError < StandardError; end
   
   ENCODE_TYPES = {
-    Fixnum => ::RbTNetstring::IntegerEncoder,
-    Bignum => ::RbTNetstring::IntegerEncoder, 
-    Float => ::RbTNetstring::FloatEncoder,
-    String => ::RbTNetstring::StringEncoder,
-    Array => ::RbTNetstring::ListEncoder,
-    Hash => ::RbTNetstring::DictionaryEncoder,
-    NilClass => ::RbTNetstring::NullEncoder,
-    TrueClass => ::RbTNetstring::BooleanEncoder,
-    FalseClass => ::RbTNetstring::BooleanEncoder
+    Fixnum => IntegerEncoder,
+    Bignum => IntegerEncoder, 
+    Float => FloatEncoder,
+    String => StringEncoder,
+    Array => ListEncoder,
+    Hash => DictionaryEncoder,
+    NilClass => NullEncoder,
+    TrueClass => BooleanEncoder,
+    FalseClass => BooleanEncoder
   }
 
   PARSE_TYPES = {
-    '#' => ::RbTNetstring::IntegerParser,
-    '^' => ::RbTNetstring::FloatParser,
-    ',' => ::RbTNetstring::StringParser, 
-    ']' => ::RbTNetstring::ListParser,
-    '}' => ::RbTNetstring::DictionaryParser,
-    '~' => ::RbTNetstring::NullParser,
-    '!' => ::RbTNetstring::BooleanParser
+    '#' => IntegerParser,
+    '^' => FloatParser,
+    ',' => StringParser, 
+    ']' => ListParser,
+    '}' => DictionaryParser,
+    '~' => NullParser,
+    '!' => BooleanParser
   }
 
   # Converts a tnetstring into the encoded data structure.
@@ -61,7 +61,7 @@ module RbTNetstring
   #  #=> ['hello world', 'abc123']
   #
   def self.parse(tnetstring)
-    RbTNetstring::Parser.new.parse(tnetstring)
+    Parser.new.parse(tnetstring)
   end
 
   # Constructs a tnetstring out of the given object. Valid Ruby object types

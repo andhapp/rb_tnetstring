@@ -3,5 +3,5 @@ $LOAD_PATH.unshift(File.dirname(__FILE__))
 
 require 'rb_tnetstring/rb_tnetstring'
 
-# Convenience method
+# Convenience constant
 TNetstring = RbTNetstring

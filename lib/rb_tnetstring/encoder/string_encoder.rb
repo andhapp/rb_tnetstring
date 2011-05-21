@@ -1,6 +1,6 @@
 module RbTNetstring
 
-  class StringEncoder < ::RbTNetstring::Encoder 
+  class StringEncoder < Encoder 
     def initialize(obj)
       @obj = obj
     end

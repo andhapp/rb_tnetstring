@@ -1,6 +1,6 @@
 module RbTNetstring
 
-  class FloatParser < RbTNetstring::Parser
+  class FloatParser < Parser
 
     def initialize(payload)
       @payload = payload

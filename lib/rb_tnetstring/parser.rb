@@ -10,7 +10,7 @@ module RbTNetstring
  
     class Payload
       
-      include ::RbTNetstring::Helper
+      include Helper
       
       attr_accessor :parser_klass, :value, :remain
 
@@ -38,7 +38,7 @@ module RbTNetstring
       end
 
       def to_parser_klass(payload_type_symbol)
-        if type = ::RbTNetstring::PARSE_TYPES[payload_type_symbol]
+        if type = PARSE_TYPES[payload_type_symbol]
         else assert false, "Invalid payload type: #{payload_type_symbol}"
         end
         type

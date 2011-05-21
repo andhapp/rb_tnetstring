@@ -1,8 +1,8 @@
 module RbTNetstring
 
-  class DictionaryParser < RbTNetstring::Parser
+  class DictionaryParser < Parser
     
-    include ::RbTNetstring::Helper
+    include Helper
      
     def initialize(payload)
       @payload = payload  

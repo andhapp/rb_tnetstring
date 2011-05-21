@@ -1,7 +1,8 @@
 module RbTNetstring
-  class NullParser < RbTNetstring::Parser
+
+  class NullParser < Parser
   
-    include ::RbTNetstring::Helper
+    include Helper
     
     def initialize(payload)
       @payload = payload
